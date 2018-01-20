@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
+
+// Components
+import TablesPage from './Component/TablesPage/TablesPage';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
+        <TablesPage />
       </div>
     );
   }
