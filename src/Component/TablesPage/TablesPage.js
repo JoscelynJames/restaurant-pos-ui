@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import fetchAllTables from '../../store/actions/FetchAllTables';
 import fetchAllChecks from '../../store/actions/FetchAllChecks';
-import Card from './Card/Card';
+import Card from '../Card/Card';
 import styles from './TablesPage.css';
 
 class TablesPage extends Component {
@@ -34,6 +34,7 @@ class TablesPage extends Component {
 		this.props.allChecks.map(check => {
 			if (!check.closed) openTableIds.push(check.tableId)
 		})
+		
 		return openTableIds;
 	}
 
