@@ -1,0 +1,26 @@
+.table {
+	height: 120px;
+	width: 120px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+}
+
+.available {
+	background-color: #27CC6A;
+}
+
+.open {
+	background-color: #FED08A;
+}
+
+.closed {
+	background-color: red;
+}
+
+.tableNumber {
+	font-size: 25px;
+	color: rgb(46, 46, 46)
+}

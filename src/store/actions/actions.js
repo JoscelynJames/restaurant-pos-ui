@@ -1,0 +1,1 @@
+export const FETCH_ALL_TABLES = 'FETCH_ALL_TABLES';
