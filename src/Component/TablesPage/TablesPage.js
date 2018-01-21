@@ -46,7 +46,7 @@ class TablesPage extends Component {
 					{
 						this.props.tables.map(table => {
 							if(!openTables.includes(table.id)) {
-								return <Card key={table.id} type="table" status="open" number={table.number} />
+								return <Card key={table.id} id={table.id} type="table" status="available" number={table.number} />
 							}
 						})
 					}
@@ -55,7 +55,7 @@ class TablesPage extends Component {
 					{
 						this.props.tables.map(table => {
 							if(openTables.includes(table.id)) {
-								return <Card key={table.id} type="table" status="available" number={table.number} />
+								return <Card key={table.id} id={table.id} type="table" status="open" number={table.number} />
 							}
 						})
 					}
