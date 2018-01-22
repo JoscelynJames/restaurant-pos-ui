@@ -21,13 +21,6 @@ class TablesPage extends Component {
 		this.props.fetchAllChecks();
 	}
 
-	getTableNumber(id) {
-		const match = this.props.tables.find((table) => {
-			return table.id === id
-		})
-		return match.number
-	}
-
 	tableAvaliability() {
 		let openTableIds = [];
 		
@@ -46,7 +39,7 @@ class TablesPage extends Component {
 					{
 						this.props.tables.map(table => {
 							if(!openTables.includes(table.id)) {
-								return <Card key={table.id} id={table.id} type="table" status="available" number={table.number} />
+								return <Card key={table.id} id={table.id} type="table" status="available" text={table.number} />
 							}
 						})
 					}
@@ -55,7 +48,7 @@ class TablesPage extends Component {
 					{
 						this.props.tables.map(table => {
 							if(openTables.includes(table.id)) {
-								return <Card key={table.id} id={table.id} type="table" status="open" number={table.number} />
+								return <Card key={table.id} id={table.id} type="table" status="open" text={table.number} />
 							}
 						})
 					}

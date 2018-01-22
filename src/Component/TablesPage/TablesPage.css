@@ -6,8 +6,8 @@
 }
 
 .tables {
-	width: 40%;
+	width: 45vw;
+	height: 70vh;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
 }

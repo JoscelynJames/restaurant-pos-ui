@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import styles from './Card.css';
 import axios from 'axios';
 import { withRouter } from 'react-router';
+import postCheck from '../../store/actions/PostCheck';
 
 class Card extends Component{
 
 	handleClick() {
-		if (this.props.status === 'open') {
-			this.props.history.push(`./check/${this.props.number}`)
+		const id = this.props.id;
+
+		if (this.props.status === 'available') {
+			this.props.postCheck(id);
+			this.props.history.push(`/check/${id}`)
 		} else {
-			axios.post('https://check-api.herokuapp.com/checks', 
-			{ tableId: this.props.id }, 
-			{
-				headers: { Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM3OTczYjk1LWRhYmUtNDkxOC1iNmQyLTAxODcyZjJlNzE1YSIsIm5hbWUiOiJqdW5pb3IgIzEifQ.YrudbiglqwaOf7XLCEKDmHYKXZt3-5fV_O97nApv8yU ' }
-			}
-		)
-		.then(res => {
-			this.props.history.push(`./check/${this.props.number}`)
-		})
-		.catch(err => console.log(err))
+			this.props.history.push(`/check/${id}`)
 		}
 	}
 
 	render() {
 		return (
 			<div className={`${styles[this.props.type]} ${styles[this.props.status]}`} onClick={() => this.handleClick()}>
-				<p className={styles.tableNumber}>{this.props.number}</p>
+				<p className={styles.text}>{this.props.text}</p>
 			</div>
 		);
 	}
 };
 
-export default withRouter(Card);
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({
+		postCheck,
+	}, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(withRouter(Card));
 

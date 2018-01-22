@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { FETCH_ALL_TABLES_SUCCESS } from './actions'
+
 
 function fetchAllTablesSuccess(body) {
 	return {
-		type: 'FETCH_ALL_TABLES_SUCCESS',
+		type: FETCH_ALL_TABLES_SUCCESS,
 		body,
 	};
 }

@@ -1,0 +1,7 @@
+.conatiner {
+	display: flex;
+	flex-direction: row;
+	width: 25vw;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+}

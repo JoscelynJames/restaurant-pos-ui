@@ -1,7 +1,8 @@
 const initalState = {
   tables: [],
   allChecks: [],
-  closedChecks: []
+	menuItems: [],
+	currentCheck: []
 };
 
 const reducer = (state = initalState, action) => {
@@ -15,6 +16,21 @@ const reducer = (state = initalState, action) => {
 			return {
 				...state,
 				allChecks: action.body
+			}
+		case 'FETCH_All_MENU_ITEMS_SUCCESS': 
+			return {
+				...state,
+				menuItems: action.body
+			}
+		case 'FETCH_CHECK_ITEMS_SUCCESS': 
+			return {
+				...state,
+				currentCheck: action.body
+			}
+		case 'CLOSE_CHECK_SUCCESS': 
+			return {
+				...state,
+				allChecks: [...action.body]
 			}
 		default: 
 			return state;

@@ -1,0 +1,14 @@
+.close {
+	height: 10vh;
+	background-color: #F76065;
+	border-radius: 20px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+.close > p {
+	font-size: 25px
+}
