@@ -2,7 +2,7 @@ const initalState = {
   tables: [],
   allChecks: [],
 	menuItems: [],
-	currentCheck: []
+	currentCheck: {}
 };
 
 const reducer = (state = initalState, action) => {
@@ -31,6 +31,14 @@ const reducer = (state = initalState, action) => {
 			return {
 				...state,
 				allChecks: [...action.body]
+			}
+		case 'ADD_ITEM_TO_CHECK_SUCCESS': 
+			return {
+				...state,
+				currentCheck: {
+					...state.currentCheck, 
+					orderedItems: [...state.currentCheck.orderedItems, action.body]
+				}
 			}
 		default: 
 			return state;

@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Card from '../../Card/Card';
 import styles from './Menu.css';
 
 class Menu extends Component{
+
+	handleClick() {
+		console.log(this.props)
+		// this.props.addItemToCheck(this.props.checkId, )
+	}
 
 	render() {
 		return (
@@ -18,11 +23,11 @@ class Menu extends Component{
 							type="menu" 
 							text={item.name} 
 							price={item.price}
+							checkId={this.props.checkId}
 						/>
 					)
 				})
 			}
-
 			</div>
 		)
 	}

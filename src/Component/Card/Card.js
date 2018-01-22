@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styles from './Card.css';
-import axios from 'axios';
 import { withRouter } from 'react-router';
 import postCheck from '../../store/actions/PostCheck';
+import addItemToCheck from '../../store/actions/AddItemToCheck';
 
 class Card extends Component{
 
@@ -14,9 +14,15 @@ class Card extends Component{
 		if (this.props.status === 'available') {
 			this.props.postCheck(id);
 			this.props.history.push(`/check/${id}`)
-		} else {
+		}; 
+
+		if (this.props.status === 'open') {
 			this.props.history.push(`/check/${id}`)
-		}
+		};
+
+		if (this.props.type === 'menu') {
+			this.props.addItemToCheck(this.props.checkId, id)
+		};
 	}
 
 	render() {
@@ -31,6 +37,7 @@ class Card extends Component{
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		postCheck,
+		addItemToCheck,
 	}, dispatch)
 }
 

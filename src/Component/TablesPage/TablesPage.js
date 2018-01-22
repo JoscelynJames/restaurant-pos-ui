@@ -7,14 +7,6 @@ import Card from '../Card/Card';
 import styles from './TablesPage.css';
 
 class TablesPage extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			openTables: [],
-			tablesInUse: [],
-		}
-	}
 
 	componentWillMount() {
 		this.props.fetchAllTables();

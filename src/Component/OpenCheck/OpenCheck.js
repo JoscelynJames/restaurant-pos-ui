@@ -27,7 +27,7 @@ class OpenCheck extends Component {
 		} else {
 			return (
 				<div className={styles.conatiner}>
-					<Menu />
+					<Menu checkId={checkId[0].id}/>
 					<div>
 						<Check checkId={checkId[0].id}/>
 						<CloseButton checkId={checkId[0].id}/>

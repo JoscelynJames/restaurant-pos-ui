@@ -11,24 +11,13 @@ class Check extends Component {
 		this.props.fetchCheckItems(this.props.checkId); 
 	}
 
-	getName(id) {
-		return this.props.menuItems.filter(item => {
-			if(item.id === id) {
-				return item
-			}
-		})
-	}
-
 	render() {
 		return (
 			<div className={styles.check}>
-				{this.props.check.length === 0 || this.props.menuItems.length === 0 ? null 
-				: this.props.check.orderedItems.map(item => {
-					console.log(this.props)
-					const menuItem = this.getName(item.itemId);
-					console.log(menuItem)
-					return <CheckItem key={item.itemId} name={menuItem[0].name} price={menuItem[0].price}/>
-				})
+				{this.props.check.orderedItems === undefined ? null 
+					: this.props.check.orderedItems.map((item, i) => {
+							return <CheckItem key={i} itemId={item.itemId} />
+					})
 				}
 			</div>
 		)
