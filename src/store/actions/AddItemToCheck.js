@@ -9,7 +9,6 @@ function addItemToCheckSuccess(body) {
 }
 
 export default function addItemToCheck(checkId, itemId) {
-	console.log(checkId, itemId)
 	return (dispatch) => {
 		return axios.put(`https://check-api.herokuapp.com/checks/${checkId}/addItem`,
 			{ itemId: itemId },
@@ -18,7 +17,6 @@ export default function addItemToCheck(checkId, itemId) {
 			}
 		)
 			.then(res => {
-				console.log(res.data)
 				return dispatch(addItemToCheckSuccess(res.data))
 			})
 			.catch(err => console.log(err));

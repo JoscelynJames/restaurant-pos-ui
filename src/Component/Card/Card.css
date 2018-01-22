@@ -21,6 +21,22 @@
 	cursor: pointer;
 }
 
+.button {
+	height: 80px;
+	width: 200px;
+	border-radius: 20px;
+	display: flex;
+	align-self: flex-end;
+	align-items: center;
+	justify-content: center;
+	margin: 40px;
+	cursor: pointer;
+}
+
+.button > p { 
+	font-size: 25px
+}
+
 .available {
 	background-color: #27CC6A;
 }
@@ -30,7 +46,7 @@
 }
 
 .closed {
-	background-color: red;
+	background-color: #F76065;
 }
 
 .text {

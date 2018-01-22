@@ -29,7 +29,7 @@ class OpenCheck extends Component {
 				<div className={styles.conatiner}>
 					<Menu checkId={checkId[0].id}/>
 					<div>
-						<Check checkId={checkId[0].id}/>
+						<Check checkId={checkId[0].id} status="open"/>
 						<CloseButton checkId={checkId[0].id}/>
 					</div>
 				</div>

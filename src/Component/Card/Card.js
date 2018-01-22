@@ -10,7 +10,6 @@ class Card extends Component{
 
 	handleClick() {
 		const id = this.props.id;
-
 		if (this.props.status === 'available') {
 			this.props.postCheck(id);
 			this.props.history.push(`/check/${id}`)
@@ -18,6 +17,14 @@ class Card extends Component{
 
 		if (this.props.status === 'open') {
 			this.props.history.push(`/check/${id}`)
+		};
+
+		if (this.props.status === 'closed') {
+			this.props.history.push(`/check/closed/${id}`)
+		};
+
+		if (this.props.type === 'button') {
+			this.props.history.push(`/check/closed`)
 		};
 
 		if (this.props.type === 'menu') {

@@ -40,6 +40,20 @@ const reducer = (state = initalState, action) => {
 					orderedItems: [...state.currentCheck.orderedItems, action.body]
 				}
 			}
+		case 'VOID_ITEM_SUCCESS': 
+			return {
+				...state,
+				currentCheck: {
+					...state.currentCheck, 
+					orderedItems: 
+						state.currentCheck.orderedItems.map(item => {
+							if (item.id === action.body.id) {
+								item = action.body
+							} 
+							return item
+						})
+				}
+			}
 		default: 
 			return state;
 	}

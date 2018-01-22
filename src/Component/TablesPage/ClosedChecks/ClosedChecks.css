@@ -1,0 +1,6 @@
+.container {
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-flow: row wrap;
+}

@@ -11,3 +11,8 @@
 	display: flex;
 	flex-flow: row wrap;
 }
+
+.closedButton {
+	display: flex;
+	justify-content: flex-end
+}

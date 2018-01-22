@@ -26,24 +26,29 @@ class TablesPage extends Component {
 	render() {
 		const openTables = this.tableAvaliability();
 		return (
-			<div className={styles.container}>
-				<div className={styles.tables}>
-					{
-						this.props.tables.map(table => {
-							if(!openTables.includes(table.id)) {
-								return <Card key={table.id} id={table.id} type="table" status="available" text={table.number} />
-							}
-						})
-					}
+			<div>
+				<div className={styles.container}>
+					<div className={styles.tables}>
+						{
+							this.props.tables.map(table => {
+								if(!openTables.includes(table.id)) {
+									return <Card key={table.id} id={table.id} type="table" status="available" text={table.number} />
+								}
+							})
+						}
+					</div>
+					<div className={styles.tables}>
+						{
+							this.props.tables.map(table => {
+								if(openTables.includes(table.id)) {
+									return <Card key={table.id} id={table.id} type="table" status="open" text={table.number} />
+								}
+							})
+						}
+					</div>
 				</div>
-				<div className={styles.tables}>
-					{
-						this.props.tables.map(table => {
-							if(openTables.includes(table.id)) {
-								return <Card key={table.id} id={table.id} type="table" status="open" text={table.number} />
-							}
-						})
-					}
+				<div className={styles.closedButton}>
+					<Card status="closed" type="button" text="closed checks"/>
 				</div>
 			</div>
 		);
