@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './CheckItem.css';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class ClosedCheckItem extends Component {
@@ -8,11 +7,14 @@ class ClosedCheckItem extends Component {
 	matchMenuItem(id) {
 		const item = this.props.menuItems.filter(item => {
 			return item.id === id
-		})
-		return item[0]
+		});
+		return item[0];
 	}
 
 	render() {
+		if (this.props.menuItems.length === 0) {
+			return null;
+		}
 		const menuItem = this.matchMenuItem(this.props.itemId)
 		return (
 			!this.props.voided ? (
@@ -24,27 +26,27 @@ class ClosedCheckItem extends Component {
 						<p>{menuItem.price}</p>
 					</div>
 				</div>
-			) : (
-					<div className={`${styles.conatiner} ${styles.voided}`} >
-						<div>
-							<p></p>
-						</div>
-						<div>
-							<p>{menuItem.name}</p>
-						</div>
-						<div>
-							<p>{menuItem.price}</p>
-						</div>
+		) : (
+				<div className={`${styles.conatiner} ${styles.voided}`} >
+					<div>
+						<p></p>
 					</div>
-				)
-		)
+					<div>
+						<p>{menuItem.name}</p>
+					</div>
+					<div>
+						<p>{menuItem.price}</p>
+					</div>
+				</div>
+			)
+		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
 		menuItems: state.menuItems,
-	}
+	};
 }
 
 

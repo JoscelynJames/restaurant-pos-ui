@@ -34,7 +34,7 @@
 }
 
 .button > p { 
-	font-size: 25px
+	font-size: 25px;
 }
 
 .available {
@@ -52,5 +52,5 @@
 .text {
 	font-size: 15px;
 	color: rgb(46, 46, 46);
-	padding: 10px
+	padding: 10px;
 }

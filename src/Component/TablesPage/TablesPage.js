@@ -9,17 +9,16 @@ import styles from './TablesPage.css';
 class TablesPage extends Component {
 
 	componentWillMount() {
-		this.props.fetchAllTables();
 		this.props.fetchAllChecks();
+		this.props.fetchAllTables();
 	}
 
 	tableAvaliability() {
 		let openTableIds = [];
 		
 		this.props.allChecks.map(check => {
-			if (!check.closed) openTableIds.push(check.tableId)
-		})
-		
+			if (!check.closed) openTableIds.push(check.tableId)});
+
 		return openTableIds;
 	}
 
@@ -59,14 +58,14 @@ const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		fetchAllTables,
 		fetchAllChecks,
-	}, dispatch)
+	}, dispatch);
 }
 
 const mapStateToProps = (state) => {
 	return {
 		tables: state.tables,
 		allChecks: state.allChecks,
-	}
+	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TablesPage);

@@ -10,25 +10,30 @@ class Card extends Component{
 
 	handleClick() {
 		const id = this.props.id;
-		if (this.props.status === 'available') {
-			this.props.postCheck(id);
-			this.props.history.push(`/check/${id}`)
-		}; 
-
-		if (this.props.status === 'open') {
-			this.props.history.push(`/check/${id}`)
+		switch(this.props.status) {
+			case 'available':
+				this.props.postCheck(id);
+				this.props.history.push(`/check/${id}`);
+				break;
+			case 'open':
+				this.props.history.push(`/check/${id}`);
+				break;
+			case 'closed':
+				this.props.history.push(`/check/closed/${id}`);
+				break;
+			default:
+				break;
 		};
 
-		if (this.props.status === 'closed') {
-			this.props.history.push(`/check/closed/${id}`)
-		};
-
-		if (this.props.type === 'button') {
-			this.props.history.push(`/check/closed`)
-		};
-
-		if (this.props.type === 'menu') {
-			this.props.addItemToCheck(this.props.checkId, id)
+		switch(this.props.type) {
+			case 'button': 
+				this.props.history.push(`/check/closed`);
+				break;
+			case 'menu':
+				this.props.addItemToCheck(this.props.checkId, id);
+				break;
+			default:
+				break;
 		};
 	}
 

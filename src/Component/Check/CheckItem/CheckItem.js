@@ -13,12 +13,16 @@ class CheckItem extends Component{
 	matchMenuItem(id) {
 		const item = this.props.menuItems.filter(item => {
 			return item.id === id
-		})
-		return item[0]
+		});
+		return item[0];
 	}
 
 	render() {
 		const menuItem = this.matchMenuItem(this.props.itemId)
+		if (menuItem.length === 0) {
+			console.log(menuItem)
+			return null
+		}
 		return (
 		!this.props.voided ? (
 				<div className={styles.conatiner} >
@@ -45,20 +49,20 @@ class CheckItem extends Component{
 				</div>
 			</div>
 			) 
-		)
+		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
 		menuItems: state.menuItems,
-	}
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		voidItem,
-	}, dispatch)
+	}, dispatch);
 }
 
 

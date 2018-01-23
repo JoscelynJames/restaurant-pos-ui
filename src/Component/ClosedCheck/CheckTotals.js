@@ -8,20 +8,20 @@ class CheckTotals extends Component {
 		return (
 			<div className={styles.totals}>
 				<div>
-					<p>Tax: ${this.props.check.tax}</p>
+					<p>Tax: ${Number(this.props.check.tax).toFixed(2)}</p>
 				</div>
 				<div>
 					<p>Tip: ${Number(this.props.check.tip).toFixed(2)}</p>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
 		check: state.currentCheck,
-	}
+	};
 }
 
 export default connect(mapStateToProps)(CheckTotals);

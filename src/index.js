@@ -8,6 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import './index.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 export default store;

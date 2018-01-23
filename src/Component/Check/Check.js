@@ -27,7 +27,7 @@ class Check extends Component {
 										voided={item.voided}
 										status={this.props.status}
 									/>
-								)
+								);
 						})
 					}
 				</div>
@@ -46,11 +46,11 @@ class Check extends Component {
 									voided={item.voided}
 									status={this.props.status}
 								/>
-							)
+							);
 						})
 					}
 				</div>
-			)
+			);
 		}
 	}
 }
@@ -59,13 +59,13 @@ const mapStateToProps = (state) => {
 	return {
 		check: state.currentCheck,
 		menuItems: state.menuItems,
-	}
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		fetchCheckItems,
-	}, dispatch)
+	}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Check);

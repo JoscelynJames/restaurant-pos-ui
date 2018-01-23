@@ -15,7 +15,7 @@ class ClosedChecks extends Component {
 			if (table.id === id) {
 				return table
 			}
-		})
+		});
 	}
 
 	render() {
@@ -31,21 +31,21 @@ class ClosedChecks extends Component {
 					})
 				}
 			</div>
-		)
+		);
 	}
-}
+};
 
 const mapStateToProps = (state) => {
 	return {
 		allChecks: state.allChecks,
 		allTables: state.tables,
-	}
+	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		fetchAllTables,
-	}, dispatch)
+	}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClosedChecks);

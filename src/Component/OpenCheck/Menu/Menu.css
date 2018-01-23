@@ -6,6 +6,10 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	/* overflow: scroll */
 }
 
+@media(max-width: 965px) {
+	.menu {
+		overflow: scroll;
+	}
+}

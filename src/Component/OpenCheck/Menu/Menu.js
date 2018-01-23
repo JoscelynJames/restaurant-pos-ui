@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Card from '../../Card/Card';
 import styles from './Menu.css';
 
 class Menu extends Component{
-
-	handleClick() {
-		console.log(this.props)
-		// this.props.addItemToCheck(this.props.checkId, )
-	}
-
 	render() {
 		return (
 			<div className={styles.menu}>
@@ -29,14 +22,14 @@ class Menu extends Component{
 				})
 			}
 			</div>
-		)
+		);
 	}
 }
 
 const mapStateToProps = (state) => {
 	return {
 		menuItems: state.menuItems,
-	}
+	};
 }
 
 export default connect(mapStateToProps)(Menu);
